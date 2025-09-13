@@ -2,9 +2,9 @@
 export default {
   content: [
     "index.html",
-    "./page/login.html",
+    "./pages/login.html",
     "./pages/register.html",
-    "./page/profile.html",
+    "./pages/profile.html",
     "./src/**/*.{js,ts,jsx,tsx,html}",
   ],
   theme: {
