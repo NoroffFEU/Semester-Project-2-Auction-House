@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html class="bg-gray-100">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Auction</title>
+    <link rel="stylesheet" href="/src/css/style.css" />
+  </head>
+  <body class="m-5 bg-white rounded-lg shadow">
+    <header id="siteHeader"></header>
+    <main class="max-w-6xl mx-auto p-6">
+      <h1 class="text-2xl font-bold mb-4">My Listings</h1>
+
+      <div
+        id="settingGrid"
+        class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+      ></div>
+      <p id="settingStatus" class="mt-4 text-center text-sm text-gray-500"></p>
+    </main>
+
+    <template id="myListingCardTemplate">
+      <div class="border rounded-xl overflow-hidden flex flex-col">
+        <div class="h-36 bg-gray-100">
+          <img class="w-full h-full object-cover" alt="" />
+        </div>
+        <div class="p-3 space-y-1 flex-1">
+          <h3 class="font-semibold truncate"></h3>
+          <!-- title -->
+          <p class="text-xs text-gray-500"></p>
+          <!-- bids -->
+          <p class="text-xs text-gray-400"></p>
+          <!-- created/time ago -->
+          <div class="flex gap-2 pt-2">
+            <a class="text-sm px-2 py-1 rounded border">View</a>
+            <a class="text-sm px-2 py-1 rounded border">Edit</a>
+            <button class="text-sm px-2 py-1 rounded border text-red-600">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <script type="module" src="/src/js/ui/header.js"></script>
+    <script type="module" src="/src/js/pages/setting/auction.js"></script>
+  </body>
+</html>
