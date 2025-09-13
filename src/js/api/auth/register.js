@@ -1,23 +1,19 @@
-import { API_AUTH_REGISTER } from "../endpoints.js";
-import { headers } from "../http.js";
+import { API_AUTH_REGISTER } from "../../constants/endpoints.js";
+import { headers } from "../../constants/header.js";
 
-/**
- * Sends a register request to the API.
- * @param {Object} userInfo - Contains required Username, email and password.
- * @returns {Promise<Object>} Parsed JSON response.
- */
-export async function registerUser(userData) {
+export async function registerUser(payload) {
   const res = await fetch(API_AUTH_REGISTER, {
     method: "POST",
-    headers: headers(),
-    body: JSON.stringify(userData),
+    headers: headers({ auth: false }), // no Bearer on register
+    body: JSON.stringify(payload),
   });
 
-  const result = await res.json();
+  const result = await res.json().catch(() => ({}));
 
   if (!res.ok) {
-    throw new Error(result.errors?.[0]?.message || "Registration failed");
+    throw new Error(result?.errors?.[0]?.message || "Registration failed");
   }
 
-  return result;
+  // Unwrap { data: {...} } if present
+  return result?.data ?? result;
 }
