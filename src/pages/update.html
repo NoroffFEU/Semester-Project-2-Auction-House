@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit your Listing | Auction House</title>
+
     <meta
       name="description"
       content="Edit and update your previously submitted listing. Modify title, year, medium, and more."
@@ -13,8 +14,13 @@
       content="edit artwork, update submission, manage auction"
     />
     <meta name="author" content="Auction House" />
+    <link rel="stylesheet" href="/src/css/style.css" />
   </head>
-  <body>
+  <body class="bg-gray-50 mx-5 mt-0">
+    <header
+      id="siteHeader"
+      class="relative bg-white border-b-2 border-b-gray-500 w-full"
+    ></header>
     <form id="listingForm" novalidate>
       <fieldset>
         <label for="title">Title <span aria-hidden="true">*</span></label>
@@ -67,11 +73,8 @@
         </div>
       </fieldset>
 
-      <div class="actions">
-        <button type="submit" class="btn">
-          <a href="./profile.html">Update</a>
-        </button>
-       
+      <button type="submit" class="btn">Update</button>
+
       <div
         id="formError"
         class="error"
@@ -79,6 +82,7 @@
         style="display: none"
       ></div>
     </form>
-  
+    <script type="module" src="/src/js/ui/header.js"></script>
+    <script type="module" src="/src/js/pages/update-listing.js"></script>
   </body>
 </html>
