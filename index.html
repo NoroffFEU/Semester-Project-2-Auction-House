@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auction house page</title>
+    <link rel="stylesheet" href="/src/css/style.css" />
+  </head>
+  <body>
+    <header id="siteHeader"></header>
+    <main class="feed-container">
+      <h1 class="text-center text-2xl font-bold text-[#191819] mb-8">
+        Auction
+      </h1>
+
+      <section id="listing" class="max-w-6xl mx-auto px-4">
+        <div id="filterMount" class="mb-4"></div>
+        <div
+          id="listingGrid"
+          class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+        ></div>
+        <p
+          id="listingStatus"
+          class="mt-4 text-center text-sm text-gray-500"
+        ></p>
+      </section>
+    </main>
+    <!-- Filters UI template (hidden) -->
+    <template id="filtersTemplate">
+      <form id="filtersForm" class="flex flex-wrap gap-4 items-end">
+        <label class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-700 mb-1">Search</span>
+          <input
+            name="q"
+            placeholder="title…"
+            class="border px-2 py-1 rounded w-36 text-sm"
+          />
+        </label>
+
+        <label class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-700 mb-1">Tag</span>
+          <input
+            name="_tag"
+            placeholder="e.g. electronics"
+            class="border px-2 py-1 rounded w-32 text-sm"
+          />
+        </label>
+
+        <label class="flex flex-col">
+          <span class="text-sm font-semibold text-gray-700 mb-1">Sort by</span>
+          <select name="_sort" class="border px-2 py-1 rounded text-sm w-40">
+            <option value="created">Created (newest)</option>
+            <option value="endsAt">Ending soonest</option>
+            <option value="updated">Updated</option>
+          </select>
+        </label>
+
+        <label class="flex items-center gap-2 mt-5">
+          <input type="checkbox" name="_active" class="w-4 h-4" />
+          <span class="text-sm font-semibold">Active only</span>
+        </label>
+
+        <button
+          type="submit"
+          class="rounded bg-gray-200 text-black px-3 py-1 text-sm"
+        >
+          Apply
+        </button>
+        <button
+          type="button"
+          id="filtersClear"
+          class="rounded px-3 py-1 border text-sm"
+        >
+          Clear
+        </button>
+      </form>
+    </template>
+
+    <script type="module" src="/src/js/ui/header.js"></script>
+    <script type="module" src="/src/js/pages/listing-index.js"></script>
+    <script type="module" src="/src/js/pages/listing-filters.js"></script>
+  </body>
+</html>

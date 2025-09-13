@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit your Listing | Auction House</title>
+
+    <meta
+      name="description"
+      content="Edit and update your previously submitted listing. Modify title, year, medium, and more."
+    />
+    <meta
+      name="keywords"
+      content="edit artwork, update submission, manage auction"
+    />
+    <meta name="author" content="Auction House" />
+    <link rel="stylesheet" href="/src/css/style.css" />
+  </head>
+  <body class="bg-gray-50 mx-5 mt-0">
+    <header
+      id="siteHeader"
+      class="relative bg-white border-b-2 border-b-gray-500 w-full"
+    ></header>
+    <form id="listingForm" novalidate>
+      <fieldset>
+        <label for="title">Title <span aria-hidden="true">*</span></label>
+        <input
+          id="title"
+          name="title"
+          type="text"
+          required
+          minlength="3"
+          placeholder="e.g., Vintage Camera"
+        />
+
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          rows="4"
+          placeholder="Optional details about the item"
+        ></textarea>
+
+        <label for="tags">Tags (comma-separated)</label>
+        <input
+          id="tags"
+          name="tags"
+          type="text"
+          placeholder="e.g., camera, vintage, canon"
+        />
+        <div class="hint">Leave empty if you don’t want to add tags.</div>
+
+        <label for="endsAt"
+          >Auction ends at <span aria-hidden="true">*</span></label
+        >
+        <input id="endsAt" name="endsAt" type="datetime-local" required />
+        <div class="hint">
+          Must be a future date/time. Converted to ISO (UTC) on submit.
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Media</legend>
+        <div id="mediaList"></div>
+        <div class="actions">
+          <button type="button" id="addMedia" class="btn-secondary">
+            + Add another image
+          </button>
+        </div>
+        <div class="hint">
+          Add more images. Each image should have a URL and an optional alt
+          text.
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn">Update</button>
+
+      <div
+        id="formError"
+        class="error"
+        role="alert"
+        style="display: none"
+      ></div>
+    </form>
+    <script type="module" src="/src/js/ui/header.js"></script>
+    <script type="module" src="/src/js/pages/update-listing.js"></script>
+  </body>
+</html>

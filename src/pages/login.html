@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Log in to auction house account to access profile, see bidding history, to make bidding,  and sale product in acution house."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="bg-gray-50 mx-5">
+    <header
+      id="siteHeader"
+      class="relative bg-white border-b-2 border-b-gray-500 w-full"
+    ></header>
+    <main class="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+      <div
+        class="w-full max-w-md rounded-xl border border-[#7B87F1]/40 bg-white/10 p-8 backdrop-blur"
+      >
+        <h1 class="text-center text-2xl font-bold text-[#191819] mb-8">
+          Login
+        </h1>
+
+        <form
+          id="loginForm"
+          action="#"
+          method="POST"
+          class="space-y-6"
+          novalidate
+        >
+          <!-- Email -->
+          <div>
+            <label
+              for="email"
+              class="block text-[12px] lg:text-[16px] font-medium text-[#191819]"
+              >Email</label
+            >
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="username@stud.noroff.no"
+              autocomplete="email"
+              pattern="^[a-zA-Z0-9._%+\-]+@stud\.noroff\.no$"
+              title="Use your @stud.noroff.no email address"
+              class="block w-full rounded-xl border border-[#5D5A5A]/40 bg-white/5 px-4 py-3 text-[#000000] placeholder:text-[#5D5A5A] focus:outline-none focus:ring-2 focus:ring-[#7B87F1] focus:border-[#7B87F1] transition"
+              aria-describedby="emailHelp"
+            />
+          </div>
+
+          <!-- Password -->
+          <div>
+            <label
+              for="password"
+              class="block text-[12px] lg:text-[16px] font-medium text-[#191819]"
+              >Password</label
+            >
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              minlength="8"
+              placeholder="Password (min 8 chars)"
+              autocomplete="current-password"
+              class="block w-full rounded-xl border border-[#5D5A5A]/40 bg-white/5 px-4 py-3 text-[#000000] placeholder:text-[#5D5A5A] focus:outline-none focus:ring-2 focus:ring-[#7B87F1] focus:border-[#7B87F1] transition"
+            />
+          </div>
+
+          <!-- Submit -->
+          <button
+            type="submit"
+            class="mt-2 inline-flex items-center justify-center rounded-xl border-2 border-[#7B87F1] px-5 py-2 text-sm font-medium text-gray-900 hover:bg-[#7B87F1] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#7B87F1] transition"
+          >
+            Login
+          </button>
+
+          <!-- Login link -->
+          <p class="text-[12px] lg:text-[14px] text-gray-600">
+            I don't have an account?
+            <a
+              href="./register.html"
+              class="inline-block mt-3 px-4 py-2 text-[#561975] hover:text-[#7B87F1]"
+            >
+              Register
+            </a>
+          </p>
+        </form>
+        <p id="formError" class="hidden text-red-500 text-sm"></p>
+      </div>
+    </main>
+    <!--this is script section-->
+    <script type="module" src="/src/js/ui/header.js"></script>
+
+    <script type="module" src="/src/js/pages/auth/login.js"></script>
+  </body>
+</html>

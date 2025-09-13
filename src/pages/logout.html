@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Log in to auction house account to access profile, see bidding history, to make bidding,  and sale product in acution house."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/src./css/style.css" />
+  </head>
+  <body class="bg-gray-50 mx-5 mt-0">
+    <header
+      id="siteHeader"
+      class="relative bg-white border-b-2 border-b-gray-500 w-full"
+    ></header>
+    <main class="feed-container mt-4">
+      <h1 class="text-center text-2xl font-bold text-[#191819] mb-8">
+        Auction
+      </h1>
+
+      <section id="listing" class="max-w-6xl mx-auto px-4">
+        <!-- Filters (optional placeholder) -->
+        <div class="filtering mb-4"></div>
+
+        <!-- Cards grid -->
+        <div
+          id="listingGrid"
+          class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
+        >
+          <!-- cards render here -->
+        </div>
+
+        <!-- Error / empty state -->
+        <p
+          id="listingStatus"
+          class="mt-4 text-center text-sm text-gray-500"
+        ></p>
+      </section>
+    </main>
+    <script type="module" src="/src/js/ui/header.js"></script>
+
+    <script type="module" src="/src/js/pages/listing.js" defer></script>
+
+    <script type="module" src="/src/js/ui/cards.js" defer></script>
+  </body>
+</html>

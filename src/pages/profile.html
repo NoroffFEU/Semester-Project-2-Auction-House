@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Profile — Auction House</title>
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="View and manage your Auction House profile: edit bio and images, see bidding history, listings, and credits."
+    />
+    <link rel="canonical" href="/profile.html" />
+    <meta name="theme-color" content="#7B87F1" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/css/style.css" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 antialiased">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-white focus:px-3 focus:py-2 focus:ring-2 focus:ring-[#7B87F1]"
+    ></a>
+
+    <!-- Header injected via JS -->
+    <header
+      id="siteHeader"
+      class="relative bg-white border-b border-gray-200 w-full"
+    ></header>
+
+    <main id="main" class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6">
+      <!-- Banner + Avatar -->
+      <section aria-labelledby="profile-heading" class="relative mb-10">
+        <h1 id="profile-heading" class="sr-only">Profile</h1>
+
+        <figure
+          class="relative w-full h-[35vh] min-h-52 rounded-lg overflow-hidden shadow-sm"
+        >
+          <img
+            id="bannerImg"
+            src="/src/assets/images/backGround.png"
+            alt="Profile banner"
+            fetchpriority="high"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+          <!-- Avatar (overlapping) -->
+          <div
+            class="absolute bottom-0 left-4 translate-y-3 w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-4 border-white shadow ring-2 ring-[#cdcf49] bg-white"
+          >
+            <img
+              id="avatarImg"
+              src="/src/assets/images/myAvatar.png"
+              alt="Profile avatar"
+              decoding="async"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </figure>
+
+        <div class="mt-16 pl-4">
+          <h2 id="displayName" class="text-xl sm:text-3xl font-semibold">
+            Your name
+          </h2>
+          <p id="bioText" class="mt-1 text-sm text-gray-700">No bio yet.</p>
+          <p id="credit" class="mt-1 text-sm text-gray-700">
+            <span class="font-medium">Credit:</span> —
+          </p>
+        </div>
+      </section>
+
+      <!-- Primary actions -->
+      <div
+        class="flex flex-wrap items-center gap-3 justify-center sm:justify-start pl-6 mb-8"
+      >
+        <a
+          href="./create.html"
+          class="inline-flex items-center justify-center rounded-xl border-2 border-[#7B87F1] px-5 py-2 text-sm font-medium hover:bg-[#7B87F1] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#7B87F1] transition"
+        >
+          Create listing
+        </a>
+        <button
+          id="editProfileBtn"
+          type="button"
+          aria-controls="updateProfileForm"
+          aria-expanded="false"
+          class="inline-flex items-center justify-center rounded-xl border-2 border-[#7B87F1] px-5 py-2 text-sm font-medium hover:bg-[#7B87F1] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#7B87F1] transition"
+        >
+          Edit profile
+        </button>
+      </div>
+
+      <!-- Update profile form (hidden by default) -->
+      <form
+        id="updateProfileForm"
+        class="hidden max-w-2xl mx-auto grid-cols-1 gap-4 mb-12 bg-white p-5 rounded-xl border border-gray-200 shadow-sm"
+        aria-hidden="true"
+      >
+        <fieldset>
+          <legend class="text-base font-semibold mb-2">Update profile</legend>
+        </fieldset>
+
+        <div class="flex items-center justify-between -mt-2">
+          <a
+            href="./profile.html"
+            class="text-sm text-[#7B87F1] hover:underline w-fit"
+            >Back</a
+          >
+          <button
+            type="button"
+            id="cancelEditBtn"
+            class="text-sm text-gray-600 hover:text-gray-900"
+          >
+            Cancel
+          </button>
+        </div>
+
+        <!-- Bio -->
+        <div class="space-y-1">
+          <label for="bio" class="text-sm font-medium">Bio</label>
+          <input
+            type="text"
+            id="bio"
+            name="bio"
+            placeholder="Tell people a little about you…"
+            autocomplete="organization-title"
+            class="w-full rounded-xl border border-gray-300/70 bg-white px-4 py-3 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7B87F1] focus:border-[#7B87F1] transition"
+          />
+        </div>
+
+        <!-- Avatar URL -->
+        <div class="space-y-1">
+          <label for="avatar-url" class="text-sm font-medium">Avatar URL</label>
+          <input
+            type="url"
+            id="avatar-url"
+            name="avatar-url"
+            placeholder="https://example.com/avatar.jpg"
+            inputmode="url"
+            autocomplete="url"
+            class="w-full rounded-xl border border-gray-300/70 bg-white px-4 py-3 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7B87F1] focus:border-[#7B87F1] transition"
+          />
+          <p id="avatar-help" class="text-xs text-gray-500">
+            PNG or JPG recommended, square works best.
+          </p>
+        </div>
+
+        <!-- Avatar ALT text -->
+        <div class="space-y-1">
+          <label for="avatar-alt" class="text-sm font-medium"
+            >Avatar ALT text</label
+          >
+          <input
+            type="text"
+            id="avatar-alt"
+            name="avatar-alt"
+            placeholder="Describe the avatar for screen readers"
+            class="w-full rounded-xl border border-gray-300/70 bg-white px-4 py-3 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7B87F1] focus:border-[#7B87F1] transition"
+          />
+        </div>
+
+        <!-- Banner URL -->
+        <div class="space-y-1">
+          <label for="banner-url" class="text-sm font-medium">Banner URL</label>
+          <input
+            type="url"
+            id="banner-url"
+            name="banner-url"
+            placeholder="https://example.com/banner.jpg"
+            inputmode="url"
+            autocomplete="url"
+            class="w-full rounded-xl border border-gray-300/70 bg-white px-4 py-3 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7B87F1] focus:border-[#7B87F1] transition"
+          />
+        </div>
+
+        <!-- Banner ALT text -->
+        <div class="space-y-1">
+          <label for="banner-alt" class="text-sm font-medium"
+            >Banner ALT text</label
+          >
+          <input
+            type="text"
+            id="banner-alt"
+            name="banner-alt"
+            placeholder="Describe the banner image"
+            class="w-full rounded-xl border border-gray-300/70 bg-white px-4 py-3 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#7B87F1] focus:border-[#7B87F1] transition"
+          />
+        </div>
+
+        <button
+          type="submit"
+          id="updateBtn"
+          class="mt-2 inline-flex items-center justify-center rounded-xl border-2 border-[#7B87F1] px-5 py-2 text-sm font-medium hover:bg-[#7B87F1] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#7B87F1] transition"
+        >
+          Update profile
+        </button>
+        <p
+          id="updateStatus"
+          class="text-sm text-gray-600"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </form>
+
+      <!-- Settings navigation -->
+      <nav
+        aria-label="Profile settings"
+        class="max-w-2xl mx-auto bg-white rounded-xl border border-gray-200 shadow-sm"
+      >
+        <ul class="divide-y divide-gray-200">
+          <li>
+            <a
+              href="../pages/setting/bidding.html"
+              class="block px-5 py-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
+              >Bidding</a
+            >
+          </li>
+          <li>
+            <a
+              href="../pages/setting/auction.html"
+              class="block px-5 py-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
+              >My listings</a
+            >
+          </li>
+          <li>
+            <a
+              href="../pages/setting/archive.html"
+              class="block px-5 py-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
+              >Bidding history</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </main>
+
+    <!-- Scripts: only what's used on this page -->
+    <script type="module" src="/src/js/ui/header.js"></script>
+    <script type="module" src="/src/js/pages/profile.js"></script>
+  </body>
+</html>

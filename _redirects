@@ -1,0 +1,12 @@
+/login /src/pages/login.html 200
+/register /src/pages/register.html 200
+/logout /src/pages/logout.html 200
+/profile /src/pages/profile.html 200
+/create /src/pages/create.html 200
+/listing-filters /src/pages/listing-filters.html 200
+/single-listing /src/pages/single-listing.html 200
+/update /src/pages/update.html 200
+
+/setting/archive /src/pages/setting/archive.html 200
+/setting/auction /src/pages/setting/auction.html 200
+/setting/bidding /src/pages/setting/bidding.html 200
