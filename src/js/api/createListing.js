@@ -1,5 +1,5 @@
 import { API_AUCTION_LISTINGS_BASE } from "../constants/endpoints.js";
-import { headers } from "../constants/header.js"; // uses localStorage token + apiKey
+import { headers } from "../constants/header.js";
 
 async function parseJSON(res) {
   const t = await res.text();
@@ -24,7 +24,7 @@ export async function createListing({
 
   const res = await fetch(API_AUCTION_LISTINGS_BASE, {
     method: "POST",
-    headers: headers(true, true), //
+    headers: headers(true, true),
     body: JSON.stringify(body),
   });
 

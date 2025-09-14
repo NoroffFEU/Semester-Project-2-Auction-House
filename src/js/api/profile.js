@@ -19,7 +19,7 @@ async function toJson(res, fallbackMsg) {
 //GET  profiles name
 export async function getProfile(name) {
   const r = await fetch(API_AUCTION_PROFILE(name), {
-    headers: headers(true, true), // Bearer + API key
+    headers: headers(true, true),
     cache: "no-store",
   });
   return toJson(r, "Profile failed");
